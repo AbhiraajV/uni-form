@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* .form-container {
+    @apply font-sans
+    bg-[#8181f7]
+            bg-opacity-60
+            w-full
+            min-h-screen
+            flex
+             justify-center
+             items-center
+            h-full 
+            top-0
+            backdrop-filter backdrop-blur-lg;
+  } */
+  .form-wrapper {
+    @apply px-6
+            p-2
+            bg-white
+            /* relative */
+            justify-center
+            items-center
+            w-1/2 
+            m-auto 
+            mx-auto
+            h-1/3
+            /* sm:h-1/3 md:w-1/3 md:h-1/3 lg:w-full lg:mx-5 lg:h-1/3 */
+            rounded-3xl
+            filter
+            drop-shadow-2xl;
+  }
+  .form-type-change-buttons-container {
+    @apply flex p-1 sm:mt-4 border-black items-center justify-between;
+  }
+  .Input {
+    @apply w-full
+                h-4
+                sm:h-9
+                border-b-2 border-gray-300
+                focus:border-blue-300
+                outline-none
+                bg-transparent;
+  }
+  .Label {
+    @apply text-white font-semibold;
+  }
+  .Button {
+    @apply bg-blue-600
+            text-gray-100
+            rounded-md
+            h-8
+            sm:h-auto
+            sm:rounded-lg
+            w-20
+            sm:w-52
+            p-1
+            text-xs
+            sm:p-3;
+  }
+}
+.formBack {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  color: black !important;
+}
+
+@media screen and (max-width: 500px) {
+  .form-wrapper {
+    width: 90% !important;
+  }
+}
+.box {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+.box label {
+  font-size: 0.9rem;
+  position: absolute;
+  z-index: 10;
+  padding-left: 50px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.box input {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+.box input:checked ~ .check {
+  border-color: #b300ea;
+  box-shadow: 0px 0px 0px 15px #b300ea inset;
+}
+.box input:checked ~ .check::after {
+  opacity: 1;
+  transform: scale(1);
+}
+.box .check {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 100px;
+  background-color: transparent;
+  border: 2px solid #b300ea;
+  box-shadow: 0px 0px 0px 0px #b300ea inset;
+  transition: all 0.15s cubic-bezier(0, 1.05, 0.72, 1.07);
+}
+.box .check::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 4;
+  position: absolute;
+  transform: scale(0);
+  background-size: 50%;
+  background-image: url('https://s6.picofile.com/d/8392306668/bacc888c-bed7-41a9-bf24-f6ff0718f471/checkmark.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  transition-delay: 0.2s !important;
+  transition: all 0.25s cubic-bezier(0, 1.05, 0.72, 1.07);
+}
+
+@import 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.3.2/css/simple-line-icons.min.css';
+
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono:300,700';
+
+.select2 {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  border-bottom: 0px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  box-shadow: 0px 1em 2em -1.5em rgba(255, 0, 255, 0.5);
+  background: rgb(255, 255, 255) !important;
+}
+.select2 i.toggle {
+  position: absolute;
+  z-index: 4;
+  right: 1.5em;
+  top: 1.6em;
+  color: #ccc;
+}
+.select2 .title,
+.select2 .placeholder {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 1.5em 2em;
+  background: rgb(255, 255, 255) !important;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+.select2 > label > input {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0;
+  cursor: pointer;
+}
+.select2 > label > input:checked {
+  z-index: 2;
+}
+.select2 > label > input:checked ~ i.toggle.icon-plus {
+  display: none;
+}
+.select2 > label > input:checked ~ i.toggle.icon-minus {
+  display: block;
+}
+.select2 > label > input:not(:checked) ~ i.toggle.icon-minus {
+  display: none;
+}
+.select2 > label > input:not(:checked) ~ i.toggle.icon-plus {
+  display: block;
+}
+.select2
+  > label
+  > input:not(:checked)
+  ~ label.option
+  input:not(:checked)
+  ~ .title {
+  display: none !important;
+}
+.select2 > label > input:disabled {
+  cursor: no-drop;
+}
+.select2 label > span.placeholder {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  width: 100%;
+  color: #999;
+  border-top: 0px;
+}
+.select2 label.option {
+  display: block;
+  overflow: hidden;
+  z-index: 1;
+  width: 100%;
+  transition: all 1s ease-out;
+}
+.select2 label.option span.title {
+  position: relative;
+  z-index: 2;
+  transition: background 0.3s ease-out;
+}
+.select2 label.option span.title i.icon {
+  padding-right: 8px;
+  color: rgba(146, 168, 209, 1);
+}
+.select2 label.option span.title:hover {
+  color: #fff;
+  background: rgb(255, 255, 255);
+  box-shadow: inset 0px 1px 0px rgba(0, 0, 0, 0.1);
+}
+.select2 label.option input {
+  display: none;
+}
+.select2 label.option input:checked ~ span.title {
+  position: absolute;
+  display: block;
+  z-index: 1;
+  top: 0px;
+  font-size: 12px;
+  background: #fff;
+  border-top: 0px;
+  box-shadow: none;
+  color: inherit;
+  width: 100%;
+}
+.select2 label.option input:disabled ~ span.title {
+  background: #f9f9f9 !important;
+  color: #aaa;
+}
+.select2 label.option input:disabled ~ span.title:hover {
+  color: #aaa;
+  background: none;
+  cursor: no-drop;
+}
